@@ -408,7 +408,9 @@ au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " ==============
 " VIMRC Leader mappings
 " ==============
-au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source $MYVIMRC<CR>:filetype detect<CR>:PlugInstall<CR> :!cd ~/vim/ && git pull && git commit -am 'Update Vim' && git push & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType init.vim nmap <buffer> <silent> <leader>v :w! <CR>:source %<CR>:filetype detect<CR>:PlugInstall<CR> :!cd ~/vim/ && git pull && git commit -am 'Update Vim' && git push & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+
+
 
 " Build arduino code
 " noremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
@@ -631,19 +633,18 @@ map <leader>ww :VimwikiIndex<CR>
 " Codi
 " ==========================
 function! s:pp_js(line)
-" Strip escape codes
-return substitute(a:line, "\<esc>".'\[\d\(\a\|\dm\)', '', 'g')
+    " Strip escape codes
+    return substitute(a:line, "\<esc>".'\[\d\(\a\|\dm\)', '', 'g')
 endfunction
 highlight CodiVirtualText guifg=#716876
-let g:codi#virtual_text_prefix = "❯ "
-let g:codi#aliases = {
-    \ 'javascript.jsx': 'javascript',
-    \ }
+let g:codi#aliases = { 'javascript.jsx': 'javascript' }
 " \ 'rephrase': function('s:rp_js'),
+"
+ " babel-node is a script I created in ~/bin has npx @babel-node $@
 let g:codi#interpreters = {
     \ 'javascript': {
-        \ 'bin': 'node',
-        \ 'prompt': '^\(>\|\.\.\.\+\) ',
+        \ 'bin': 'babel-node',
+        \ 'prompt': '^\(babel >\|\.\.\.\+\) ',
         \ 'preprocess': function('s:pp_js'),
         \ },
     \ }
