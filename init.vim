@@ -647,8 +647,7 @@ let g:codi#aliases = { 'javascript.jsx': 'javascript' }
 let g:codi#interpreters = {
     \ 'javascript': {
         \ 'bin': 'babel-node',
-        \ 'rightalign': 0,
-        \ 'prompt': '^\(babel >\|\.\.\.\+\) ',
+        \ 'prompt': '^\(>\|\.\.\.\+\) ',
         \ 'preprocess': function('s:pp_js'),
         \ },
     \ }
