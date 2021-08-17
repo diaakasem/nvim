@@ -450,7 +450,7 @@ Plug 'rking/ag.vim'
 Plug 'rstacruz/vim-xtract'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'tomasr/molokai'
+" Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -512,6 +512,9 @@ let g:deoplete#enable_at_startup   = 1
 " Theme
 " =============================================================================
 colorscheme tender
+" colorscheme gruvbox
+" colorscheme one
+" set background=dark " for the dark version of one colorscheme
 let g:main_font = "Monofur\\ for\\ Powerline:h13"
 let g:small_font = "Monofur\\ for\\ Powerline:h13"
 " If you have vim >=8.0 or Neovim >= 0.1.5
@@ -596,7 +599,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme='molokai'
+let g:airline_theme='one'
 " Airline performance
 let g:airline_highlighting_cache = 1
 let g:airline_extensions = []
@@ -644,6 +647,7 @@ let g:codi#aliases = { 'javascript.jsx': 'javascript' }
 let g:codi#interpreters = {
     \ 'javascript': {
         \ 'bin': 'babel-node',
+        \ 'rightalign': 0,
         \ 'prompt': '^\(babel >\|\.\.\.\+\) ',
         \ 'preprocess': function('s:pp_js'),
         \ },
