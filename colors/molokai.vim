@@ -27,6 +27,8 @@ else
 endif
 
 
+hi Normal guibg=NONE ctermbg=NONE
+
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF

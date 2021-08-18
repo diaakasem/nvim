@@ -511,16 +511,6 @@ let g:deoplete#enable_at_startup   = 1
 " =============================================================================
 " Theme
 " =============================================================================
-colorscheme tender
-" colorscheme gruvbox
-" colorscheme one
-" set background=dark " for the dark version of one colorscheme
-let g:main_font = "Monofur\\ for\\ Powerline:h13"
-let g:small_font = "Monofur\\ for\\ Powerline:h13"
-" If you have vim >=8.0 or Neovim >= 0.1.5
-if (has("termguicolors"))
-  set termguicolors
-endif
 
 " =============================================================================
 " highlight the 80th column
@@ -593,16 +583,37 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ }
 " let NERDTreeChDirMode=2
 
-"=============================================================================
+" =============================================================================
+" Colorscheme configuration from a plugin ( tender )
+" =============================================================================
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Theme
+syntax enable
+colorscheme tender
+hi Normal guibg=NONE ctermbg=NONE
+" colorscheme gruvbox
+" colorscheme one
+" set background=dark " for the dark version of one colorscheme
+" let g:main_font = "Monofur\\ for\\ Powerline:h13"
+" let g:small_font = "Monofur\\ for\\ Powerline:h13"
+
+" =============================================================================
 " Airline configurations
 "=============================================================================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme='one'
 " Airline performance
 let g:airline_highlighting_cache = 1
 let g:airline_extensions = []
+let g:airline_theme = 'tender'
 
 " ==========================
 " Nerd Commenter
