@@ -39,7 +39,7 @@ augroup suffixes
         \["yaml", ".yml,.yaml"],
         \["yaml", ".yml,.yaml"],
         \["shell", ".csh,.sh,.bash"],
-        \["vimrc", ".vimrc,vimrc"],
+        \["vimrc", ".vimrc,vimrc,.vim"],
         \["python", ".py,.pyw"]
         \]
   for ft in associations
@@ -73,8 +73,6 @@ set clipboard+=unnamedplus
 " set clipboard+=unnamed
 set colorcolumn=80
 set completeopt=menuone,longest
-
-
 " Y-N-C prompt if closing with unsaved changes.
 set confirm
 " have a line indicate the cursor location
@@ -246,7 +244,7 @@ inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Es
 inoremap jj <esc>
 " Have Enter to go to command line ( do not put that comment in the same line )
 " I actually found that I use ; alot 
-" nnoremap ; :
+nnoremap ; :
 nnoremap <C-n> ;
 " Increase window left
 noremap <C-h> <C-W><
@@ -408,8 +406,8 @@ au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " ==============
 " VIMRC Leader mappings
 " ==============
-au FileType init.vim nmap <buffer> <silent> <leader>v :w! <CR>:source %<CR>:filetype detect<CR>:PlugInstall<CR> :!cd ~/vim/ && git pull && git commit -am 'Update Vim' && git push & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-
+au FileType vimrc nnoremap <buffer> <leader>v :w! <CR>:source %<CR>:filetype detect<CR>:PlugInstall<CR> :!cd ~/.config/nvim/ && git pull && git commit -am 'Update Vim' && git push &<CR> :!cd ~/vim/ && git pull && git commit -am 'Update Vim' && git push & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+nnoremap <buffer> <leader>V :tabnew ~/.config/nvim/init.vim <CR>
 
 
 " Build arduino code
@@ -590,10 +588,10 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 if (has("termguicolors"))
  set termguicolors
 endif
-
+" Prevent ERROR highlighting ( that happens without actual errors
+au ColorScheme * highlight Error NONE
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 " Theme
 syntax enable
 colorscheme tender
@@ -635,8 +633,6 @@ let g:NERDCommentEmptyLines = 0
 " VIFM
 " ==========================
 map <leader>vv :Vifm<CR>
-map <leader>V :VsplitVifm<CR>
-map <leader>H :SplitVifm<CR>
 
 " ==========================
 " Vimwiki
