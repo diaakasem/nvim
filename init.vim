@@ -418,6 +418,9 @@ nnoremap <buffer> <leader>V :tabnew ~/.config/nvim/init.vim <CR>
 call plug#begin('~/.vim/plugged')
 
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'Chiel92/vim-autoformat'
 Plug 'Chiel92/vim-autoformat'
 Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -476,6 +479,16 @@ call plug#end()
 " Plug 'tomlion/vim-solidity'
 " Plug 'jceb/vim-orgmode'
 " Plug 'dbakker/vim-projectroot'
+
+" =============================================================================
+" Telescope
+" =============================================================================
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " =============================================================================
 " Easy align configs
