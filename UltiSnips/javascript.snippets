@@ -15,15 +15,55 @@ from javascript_snippets import (
 )
 endglobal
 
+# ==============================================================================
+# Import Bluebird promises
+# ==============================================================================
+snippet ipromise "Import Bluebird promises"
+import Promise from 'bluebird';
+endsnippet
+
+# ==============================================================================
+# Import Lodash
+# ==============================================================================
+snippet ilodash "Import Lodash"
+import _ from 'lodash';
+endsnippet
+
+snippet ilog "Import log"
+import log from '../../decorators/log';
+endsnippet
+
+# ==============================================================================
+# Create an async function
+# ==============================================================================
 snippet vaf "async function (assigned to var)"
 /**
  * $1
  *
+ * @param {$3} $2
  */
 const ${1:function_name} = log(async function $1(
-	$2
+	${2:param1}: ${3:string}
 ) {
 	${VISUAL}$0
 });
 endsnippet
 
+# ==============================================================================
+# Export Default async function
+# ==============================================================================
+snippet edaf "export default async function (assigned to var)"
+
+import log from '../../decorators/log';
+
+/**
+ * $1
+ *
+ * @param {$3} $2
+ */
+export default log(async function ${1:function_name} (
+	${2:param1}: ${3:string}
+) {
+	${VISUAL}$0
+});
+endsnippet
