@@ -341,19 +341,12 @@ au FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 " ==================
 " ALEFix  use ALE Fixers
 au FileType javascript nnoremap <buffer> <leader>l :ALEFix<CR> :w<CR>
-" Execute eslint on the current js file
-au FileType javascript nnoremap <buffer> <leader>L :w<CR> :R eslint --fix <C-R>%<CR>
 " Add debugger; keyword
 au FileType javascript nnoremap <buffer> <leader>d Odebugger; <ESC> :w <CR>
 " Execute node on the current line
 au FileType javascript nnoremap <buffer> <leader>e :.!node <CR>
-au FileType javascript nnoremap <buffer> <leader>= :w<CR>:!fixjsstyle %<CR>
-" Beautify
-au FileType javascript nnoremap <buffer> <leader>; :call JsBeautify()<cr>
-au FileType javascript vnoremap <buffer> <leader>; :call RangeJsBeautify()<cr>
 " TODO: Check why this does not work.. it should use `ga` to search and find definition
 au FileType javascript nnoremap <buffer> <leader>g :ALEGoToDefinition<CR>
-" au FileType javascript nmap <buffer> <F8>T :TagbarToggle<CR>
 
 " ==================
 " JSON leader mappings
