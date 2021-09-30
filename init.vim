@@ -179,7 +179,7 @@ set virtualedit=block
 set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**
 " set the search scan to wrap lines
 set wrapscan
-set pastetoggle=<F8>
+" set pastetoggle=<F8>
 au FileType javascript setl foldmethod=syntax nofoldenable
 " editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -292,7 +292,7 @@ nnoremap <leader>N :NERDTreeToggle<CR>
 " Toggle the BufExplorer
 nnoremap <leader>o :CtrlPBuffer<CR>
 " Paste from clipboard
-nnoremap <leader>p <C-R><C-P>.
+nnoremap <leader>p :set paste<CR>; <C-R><C-P>.; :set nopaste <CR>
 " Reload buffer
 nnoremap <leader>re :e <CR>
 nnoremap <leader>s :vsp<CR>
@@ -304,10 +304,10 @@ nnoremap <leader>x <c-w>
 " ================
 " Numbers config
 " ================
-noremap <F6> :NumbersToggle<CR>
-noremap <F7> :NumbersOnOff<CR>
+" noremap <F6> :NumbersToggle<CR>
+" noremap <F7> :NumbersOnOff<CR>
 " Toggle paste 
-noremap <F8> :set invpaste paste?<CR>
+" noremap <F8> :set invpaste paste?<CR>
 " imap <F8> <C-O>:set invpaste paste?<CR>
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
