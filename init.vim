@@ -292,7 +292,7 @@ nnoremap <leader>N :NERDTreeToggle<CR>
 " Toggle the BufExplorer
 nnoremap <leader>o :CtrlPBuffer<CR>
 " Paste from clipboard
-nnoremap <leader>p :set paste<CR>; <C-R><C-P>.; :set nopaste <CR>
+nnoremap <leader>p <C-R><C-P>.
 " Reload buffer
 nnoremap <leader>re :e <CR>
 nnoremap <leader>s :vsp<CR>
