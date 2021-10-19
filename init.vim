@@ -1,4 +1,5 @@
 "=======================================================================
+"=======================================================================
 " Author : Diaa Mohamed Kasem
 " Date   : 24 May 2012
 " VIM Configuration File
@@ -69,7 +70,9 @@ set backupdir=~/.vim/tmp,~/.tmp,~/tmp
 set ch=1
 set cindent
 " Add the unnamed register to the clipboard
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
+set clipboard=unnamed,unnamedplus
+" set clipboard=unnamed
 " set clipboard+=unnamed
 set colorcolumn=80
 set completeopt=menuone,longest
@@ -458,6 +461,8 @@ Plug 'vim-scripts/mru'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
