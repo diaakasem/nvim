@@ -11,6 +11,7 @@ let mapleader=","
 " Enable man pages
 runtime ftplugin/man.vim
 
+
 " =============================================================================
 " Refactor a variable name in python
 " =============================================================================
@@ -269,6 +270,8 @@ vnoremap > >gv
 noremap <C-e> 4<C-e>
 " Scroll faster Up
 noremap <C-y> 4<C-y>
+" aopen file if not existing when gf
+noremap <leader>gf :e <cfile><cr>
 
 " ====================================================
 " Global Leader Mapping / Assignments 
@@ -343,7 +346,8 @@ au FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 " Javascript leader mappings
 " ==================
 " ALEFix  use ALE Fixers
-au FileType javascript nnoremap <buffer> <leader>l :ALEFix<CR> :w<CR>
+au FileType javascript nnoremap <buffer> <leader>l :ALEFix<CR>
+" au FileType javascript nnoremap <buffer> <leader>l :ALELint<CR>
 " Add debugger; keyword
 au FileType javascript nnoremap <buffer> <leader>d Odebugger; <ESC> :w <CR>
 " Execute node on the current line
@@ -463,6 +467,14 @@ Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'troydm/zoomwintab.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh && npm install -g flow-bin',
+    \ }
+
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -471,8 +483,11 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-
+source ~/.config/nvim/nvim-lspconfig.vim
+source ~/.config/nvim/gitsigns.vim
+source ~/.config/nvim/nvim-cmp.vim
 call plug#end()
+
 
 "Plug 'isRuslan/vim-es6'
 " Plug 'tomlion/vim-solidity'
@@ -534,16 +549,21 @@ let g:ale_linters = {
       \ 'javascript': ['eslint']
       \ }
 let g:ale_fixers = {
-      \ 'javascript': ['eslint']
+      \ '*': [],
+      \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint']
       \ }
+      "\ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint', 'flow', 'flow-language-server']
 let g:ale_echo_msg_format = '%linter%: %s'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 " let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_delay = 2000
+" let g:ale_lint_delay = 2000
+let g:ale_lint_delay = 0
 let g:ale_lint_on_text_changed = 0
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
 " use Ctrl-k and Ctrl-j to jump up and down between errors
 " FIXME conflict with window resize
 " nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -551,9 +571,17 @@ let g:ale_lint_on_text_changed = 0
 
 " TODO try making this dynamic
 " use npm bin to get the path
+
 let g:jsdoc_lehre_path = '$NVM_BIN/lehre'
 
-"
+" let g:LanguageClient_rootMarkers = {
+" \   'javascript': ['.flowconfig', 'package.json']
+" \ }
+" let g:LanguageClient_serverCommands={
+" \   'javascript': ['flow', 'lsp'],
+" \   'javascript.jsx': ['flow', 'lsp']
+" \}
+
 " =============================================================================
 " CtrlP Configurations - Using The Silver Searcher `ag` instead of grep or ack
 " =============================================================================
@@ -708,3 +736,12 @@ let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
 " call inputrestore()
 " endfunction
 " au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
+
+" Put these lines at the very end of your vimrc file.
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
