@@ -5,6 +5,11 @@
 " VIM Configuration File
 "=======================================================================
 
+set completeopt-=preview
+
+" use omni completion provided by lsp
+autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
 " change the leader to be a comma vs slash
 let mapleader=","
 
@@ -76,7 +81,7 @@ set clipboard=unnamed,unnamedplus
 " set clipboard=unnamed
 " set clipboard+=unnamed
 set colorcolumn=80
-set completeopt=menuone,longest
+set completeopt+=menuone,longest
 " Y-N-C prompt if closing with unsaved changes.
 set confirm
 " have a line indicate the cursor location
@@ -461,7 +466,7 @@ Plug 'vifm/vifm.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/bash-support.vim'
-Plug 'vim-scripts/filetype.vim'
+" Plug 'vim-scripts/filetype.vim'
 Plug 'vim-scripts/mru'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
@@ -483,13 +488,18 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-source ~/.config/nvim/nvim-lspconfig.vim
+" Needed not to have errors
+" source ~/.config/nvim/nvim-lspconfig.vim
 source ~/.config/nvim/gitsigns.vim
 source ~/.config/nvim/nvim-cmp.vim
+source ~/.config/nvim/vim-terraform.vim
 call plug#end()
 
+lua << EOF
+require'lspconfig'.pylsp.setup{}
+EOF
 
-"Plug 'isRuslan/vim-es6'
+" Plug 'isRuslan/vim-es6'
 " Plug 'tomlion/vim-solidity'
 " Plug 'jceb/vim-orgmode'
 " Plug 'dbakker/vim-projectroot'
