@@ -1,10 +1,3 @@
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
@@ -62,7 +55,7 @@ lua <<EOF
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    capabilities = capabilities
-  }
+  -- " require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+    -- " capabilities = capabilities
+  -- }
 EOF

@@ -422,13 +422,10 @@ nnoremap <buffer> <leader>V :tabnew ~/.config/nvim/init.vim <CR>
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Chiel92/vim-autoformat'
-":w
-"Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-rooter'
 "Plug 'ajh17/VimCompletesMe'
@@ -466,7 +463,6 @@ Plug 'vifm/vifm.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/bash-support.vim'
-" Plug 'vim-scripts/filetype.vim'
 Plug 'vim-scripts/mru'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
@@ -478,9 +474,24 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh && npm install -g flow-bin',
     \ }
 
+Plug 'neovim/nvim-lspconfig' 
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-lsputils'
+Plug 'SirVer/ultisnips'
+Plug 'cwood/ultisnips-terraform-snippets'
+Plug 'majutsushi/tagbar'
+Plug 'hashivim/vim-terraform'
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
-
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -488,12 +499,14 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+call plug#end()
 " Needed not to have errors
-" source ~/.config/nvim/nvim-lspconfig.vim
+source ~/.config/nvim/nvim-lspconfig.vim
+source ~/.config/nvim/nvim-lsputils.vim
 source ~/.config/nvim/gitsigns.vim
 source ~/.config/nvim/nvim-cmp.vim
 source ~/.config/nvim/vim-terraform.vim
-call plug#end()
+source ~/.config/nvim/ultisnips.vim
 
 lua << EOF
 require'lspconfig'.pylsp.setup{}
@@ -528,20 +541,6 @@ nmap ga <Plug>(EasyAlign)
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 let g:indent_guides_auto_colors = 0
-
-" =============================================================================
-" Ultisnips configurations
-" =============================================================================
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit           = "vertical"
-let g:rainbow_active               = 1
-let g:deoplete#enable_at_startup   = 1
 
 " =============================================================================
 " Theme

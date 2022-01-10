@@ -1,5 +1,3 @@
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
 lua << EOF
 -- require('gitsigns').setup()
 require('gitsigns').setup {
