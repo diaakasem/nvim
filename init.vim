@@ -42,8 +42,8 @@ augroup suffixes
         \["css", ".css,.less,.scss"],
         \["html", ".htm,.html,.xhtml,.tmpl"],
         \["ts", ".typescript"],
+        \["vue", ".vue"],
         \["arduino", ".ino"],
-        \["yaml", ".yml,.yaml"],
         \["yaml", ".yml,.yaml"],
         \["shell", ".csh,.sh,.bash"],
         \["vimrc", ".vimrc,vimrc,.vim"],
@@ -350,15 +350,10 @@ au FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 " ==================
 " Javascript leader mappings
 " ==================
-" ALEFix  use ALE Fixers
-au FileType javascript nnoremap <buffer> <leader>l :ALEFix<CR>
-" au FileType javascript nnoremap <buffer> <leader>l :ALELint<CR>
 " Add debugger; keyword
 au FileType javascript nnoremap <buffer> <leader>d Odebugger; <ESC> :w <CR>
 " Execute node on the current line
 au FileType javascript nnoremap <buffer> <leader>e :.!node <CR>
-" TODO: Check why this does not work.. it should use `ga` to search and find definition
-au FileType javascript nnoremap <buffer> <leader>g :ALEGoToDefinition<CR>
 
 " ==================
 " JSON leader mappings
@@ -435,29 +430,32 @@ Plug 'docunext/closetag.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'frazrepo/vim-rainbow'
-Plug 'hashivim/vim-terraform'
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx','typescript'],  'do': 'make install' }
 Plug 'honza/vim-snippets'
 Plug 'jacoborus/tender.vim'
 Plug 'jisaacks/GitGutter'
 Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
-Plug 'metakirby5/codi.vim'
+" Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-signify'
 Plug 'morhetz/gruvbox'
 Plug 'myusuf3/numbers.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'othree/yajs.vim'
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'rakr/vim-one'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/vim-xtract'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 " Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+" Was unable to install it using PlugInstall
+" So copied the source for now - if you have a better way
+" do it 
+" Plug 'tpope/vim-abolish' " , { 'on': ['GHDashboard', 'GHActivity'] }
 Plug 'tpope/vim-unimpaired'
 Plug 'vifm/vifm.vim'
 Plug 'vim-airline/vim-airline'
@@ -483,13 +481,14 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'cwood/ultisnips-terraform-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-terraform'
 Plug 'vim-syntastic/syntastic'
-Plug 'juliosueiras/vim-terraform-completion'
+" Plug 'juliosueiras/vim-terraform-completion'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
+" Plug 'lewis6991/gitsigns.nvim'
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
 if has('nvim')
@@ -499,14 +498,17 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
 call plug#end()
 " Needed not to have errors
 source ~/.config/nvim/nvim-lspconfig.vim
 source ~/.config/nvim/nvim-lsputils.vim
-source ~/.config/nvim/gitsigns.vim
+" source ~/.config/nvim/gitsigns.vim
 source ~/.config/nvim/nvim-cmp.vim
 source ~/.config/nvim/vim-terraform.vim
 source ~/.config/nvim/ultisnips.vim
+source ~/.config/nvim/abolish.vim
+source ~/.config/nvim/ale.vim
 
 lua << EOF
 require'lspconfig'.pylsp.setup{}
@@ -550,34 +552,6 @@ let g:indent_guides_auto_colors = 0
 " highlight the 80th column
 " =============================================================================
 hi ColorColumn ctermbg=8
-
-" =============================================================================
-" ALE Configurations
-" =============================================================================
-let g:ale_linters = {
-      \ 'javascript': ['eslint']
-      \ }
-let g:ale_fixers = {
-      \ '*': [],
-      \ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint']
-      \ }
-      "\ 'javascript': ['remove_trailing_lines', 'trim_whitespace', 'eslint', 'flow', 'flow-language-server']
-let g:ale_echo_msg_format = '%linter%: %s'
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 0
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_delay = 2000
-let g:ale_lint_delay = 0
-let g:ale_lint_on_text_changed = 0
-let g:ale_completion_enabled = 1
-let g:ale_completion_autoimport = 1
-" use Ctrl-k and Ctrl-j to jump up and down between errors
-" FIXME conflict with window resize
-" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
 " TODO try making this dynamic
 " use npm bin to get the path
 

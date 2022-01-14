@@ -1,0 +1,30 @@
+snippet s3policy
+resource "aws_iam_policy" "policy_document" {
+	name   = "tf-s3-policy-document"
+	policy = data.aws_iam_policy_document.policy.json
+}
+data "aws_iam_policy_document" "policy" {
+	statement {
+		effect = "Allow"
+		resources = [
+			# "*",
+			"${aws_s3_bucket.${1:bucket_name}.arn}/*"
+		]
+		actions = [
+			"s3:GetObject",
+			"s3:PutObject"
+		]
+	}
+	statement {
+		effect = "Allow"
+		resources = [
+			aws_s3_bucket.$1.arn
+		]
+		actions = [
+			"s3:ListBucket"
+		]
+
+	}
+}
+${VISUAL}
+endsnippet
