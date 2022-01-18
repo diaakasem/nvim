@@ -486,6 +486,7 @@ Plug 'cwood/ultisnips-terraform-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-terraform'
 Plug 'vim-syntastic/syntastic'
+Plug 'is0n/fm-nvim'
 " Plug 'juliosueiras/vim-terraform-completion'
 Plug 'nvim-lua/plenary.nvim'
 " Plug 'lewis6991/gitsigns.nvim'
@@ -498,6 +499,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'mcchrish/nnn.vim'
 
 call plug#end()
 " Needed not to have errors
@@ -509,6 +511,9 @@ source ~/.config/nvim/vim-terraform.vim
 source ~/.config/nvim/ultisnips.vim
 source ~/.config/nvim/abolish.vim
 source ~/.config/nvim/ale.vim
+source ~/.config/nvim/telescope.vim
+source ~/.config/nvim/fm-nvim.vim
+source ~/.config/nvim/nnn.vim
 
 lua << EOF
 require'lspconfig'.pylsp.setup{}
@@ -518,16 +523,6 @@ EOF
 " Plug 'tomlion/vim-solidity'
 " Plug 'jceb/vim-orgmode'
 " Plug 'dbakker/vim-projectroot'
-
-" =============================================================================
-" Telescope
-" =============================================================================
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " =============================================================================
 " Easy align configs
