@@ -1,5 +1,4 @@
 "=======================================================================
-"=======================================================================
 " Author : Diaa Mohamed Kasem
 " Date   : 24 May 2012
 " VIM Configuration File
@@ -69,7 +68,7 @@ set autoindent
 " We are using dark background in vim
 set background=dark
 " Allow backspacing over autoindent, EOL, and BOL
-set backspace=2
+" set backspace=2
 " Change backupdir ,/var/tmp,/tmp
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp
 " Make command line two lines high
@@ -157,7 +156,7 @@ set scrolloff=8
 " rounds indent to a multiple of shiftwidth
 set shiftround
 " but an indent level is 4 spaces wide.
-set shiftwidth=4
+" set shiftwidth=4
 " Use [+]/[RO]/[w] for modified/readonly/written.
 set shortmess+=a
 " Show incomplete normal mode commands as I type.
@@ -175,9 +174,9 @@ set smartindent
 " Handle tabs more intelligently
 set smarttab
 " <BS> over an autoindent deletes both spaces.
-set softtabstop=4
+" set softtabstop=4
 " <tab> inserts 4 spaces
-set tabstop=4
+" set tabstop=4
 " show title in console title bar
 set title
 " Disable all bells.  I hate ringing/flashing.
@@ -514,6 +513,7 @@ source ~/.config/nvim/ale.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/fm-nvim.vim
 source ~/.config/nvim/nnn.vim
+source ~/.config/nvim/zoomwintab.vim
 
 lua << EOF
 require'lspconfig'.pylsp.setup{}
