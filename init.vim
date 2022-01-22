@@ -109,11 +109,11 @@ source ~/.config/nvim/ctrlp.vim
 source ~/.config/nvim/theme.vim
 source ~/.config/nvim/vimwiki.vim
 source ~/.config/nvim/macros.vim
+source ~/.config/nvim/nerdcommenter.vim
 " luafile ~/.config/nvim/tabnine.lua
 "
 " source ~/.config/nvim/ultisnips.vim
 " source ~/.config/nvim/nerdtree.vim
-" source ~/.config/nvim/nerdcommenter.vim
 " source ~/.config/nvim/coq.vim
 " source ~/.config/nvim/easy-align.vim
 " source ~/.config/nvim/indent-guides.vim
