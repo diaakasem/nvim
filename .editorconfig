@@ -1,0 +1,4 @@
+[*.vim]
+charset = utf-8
+indet_style = space
+indent_size = 2

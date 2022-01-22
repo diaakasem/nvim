@@ -1,0 +1,69 @@
+# The smart snippets use a global options called
+# "g:ultisnips_javascript.{option}" which can control the format
+# of trailing semicolon, space before function paren, etc.
+#
+# e.g.
+# let g:ultisnips_javascript = {
+#      \ 'keyword-spacing': 'always',
+#      \ 'semi': 'never',
+#      \ 'space-before-function-paren': 'always',
+#      \ }
+
+global !p
+from javascript_snippets import (
+	semi, space_before_function_paren, keyword_spacing
+)
+endglobal
+
+# ==============================================================================
+# Import Bluebird promises
+# ==============================================================================
+snippet ipromise "Import Bluebird promises"
+import Promise from 'bluebird';
+endsnippet
+
+# ==============================================================================
+# Import Lodash
+# ==============================================================================
+snippet ilodash "Import Lodash"
+import _ from 'lodash';
+endsnippet
+
+snippet ilog "Import log"
+import log from '../../decorators/log';
+endsnippet
+
+# ==============================================================================
+# Create an async function
+# ==============================================================================
+snippet vaf "async function (assigned to var)"
+/**
+ * $1
+ *
+ * @param {$3} $2
+ */
+const ${1:function_name} = log(async function $1(
+	${2:param1}: ${3:string}
+) {
+	${VISUAL}$0
+});
+endsnippet
+
+# ==============================================================================
+# Export Default async function
+# ==============================================================================
+snippet edaf "export default async function (assigned to var)"
+
+import log from '../../decorators/log';
+
+/**
+ * $1
+ *
+ * @param {$3} $2
+ */
+export default log(async function ${1:function_name} (
+	${2:param1}: ${3:string}
+) {
+	${VISUAL}$0
+});
+endsnippet
