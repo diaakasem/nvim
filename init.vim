@@ -69,7 +69,9 @@ Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'junegunn/fzf'
-Plug 'mcchrish/nnn.vim', {'do': ':NnnPicker'}
+" Plug 'mcchrish/nnn.vim', {'do': ':NnnPicker'}
+Plug 'luukvbaal/nnn.nvim'
+
 " Plug 'null-ls', {'branch': 'main'}
 call plug#end()
 
@@ -96,14 +98,16 @@ call plug#end()
 luafile ~/.config/nvim/nvim-lspconfig.lua
 luafile ~/.config/nvim/nvim-lsp-installer.lua
 luafile ~/.config/nvim/coq.lua
+luafile ~/.config/nvim/nnn.lua
 " luafile ~/.config/nvim/null-ls.lua
+" luafile ~/.config/nvim/tabnine.lua
 "
 source ~/.config/nvim/vim-terraform.vim
 " for crc crm crs changing cases
 source ~/.config/nvim/abolish.vim
 source ~/.config/nvim/ale.vim
 source ~/.config/nvim/telescope.vim
-source ~/.config/nvim/nnn.vim
+" source ~/.config/nvim/nnn.vim
 source ~/.config/nvim/zoomwintab.vim
 source ~/.config/nvim/nvim-treesitter.vim
 source ~/.config/nvim/airline.vim
@@ -112,7 +116,6 @@ source ~/.config/nvim/theme.vim
 source ~/.config/nvim/vimwiki.vim
 source ~/.config/nvim/macros.vim
 source ~/.config/nvim/nerdcommenter.vim
-" luafile ~/.config/nvim/tabnine.lua
 "
 " source ~/.config/nvim/ultisnips.vim
 " source ~/.config/nvim/nerdtree.vim

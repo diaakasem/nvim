@@ -1,4 +1,5 @@
 local null_ls = require("null-ls")
+local map = vim.api.nvim_set_keymap
 
 local sources = {
         -- null_ls.builtins.code_actions.gitsigns,
@@ -10,4 +11,4 @@ local sources = {
 }
 null_ls.setup({ sources = sources })
 
-keymap("n", "<leader>v", ":lua vim.lsp.buf.formatting_sync()")
+map("n", "<leader>v", ":lua vim.lsp.buf.formatting_sync()")
