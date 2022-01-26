@@ -39,6 +39,7 @@ Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'rakr/vim-one'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/vim-xtract'
+Plug 'fvictorio/vim-extract-variable'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -97,6 +98,7 @@ call plug#end()
 " Needed not to have errors
 luafile ~/.config/nvim/nvim-lspconfig.lua
 luafile ~/.config/nvim/nvim-lsp-installer.lua
+luafile ~/.config/nvim/nvim-treesitter.lua
 luafile ~/.config/nvim/coq.lua
 luafile ~/.config/nvim/nnn.lua
 " luafile ~/.config/nvim/null-ls.lua
@@ -109,13 +111,14 @@ source ~/.config/nvim/ale.vim
 source ~/.config/nvim/telescope.vim
 " source ~/.config/nvim/nnn.vim
 source ~/.config/nvim/zoomwintab.vim
-source ~/.config/nvim/nvim-treesitter.vim
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/ctrlp.vim
 source ~/.config/nvim/theme.vim
 source ~/.config/nvim/vimwiki.vim
 source ~/.config/nvim/macros.vim
 source ~/.config/nvim/nerdcommenter.vim
+source ~/.config/nvim/vim-xtract.vim
+
 "
 " source ~/.config/nvim/ultisnips.vim
 " source ~/.config/nvim/nerdtree.vim

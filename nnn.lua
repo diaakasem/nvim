@@ -5,7 +5,7 @@ local builtin = nnn.builtin
 local cfg = {
 	explorer = {
 		cmd = "nnn -H",       -- command overrride (-F1 flag is implied, -a flag is invalid!)
-		width = 24,        -- width of the vertical split
+		width = 33,        -- width of the vertical split
 		side = "topleft",  -- or "botright", location of the explorer window
 		session = "shared",      -- or "global" / "local" / "shared"
 		tabs = true,       -- seperate nnn instance per tab
@@ -56,7 +56,7 @@ local cfg = {
 	 -- window_nav = "<C-l>"
 -- }
 nnn.setup(cfg)
-map("n", "<leader>n", ":NnnExplorer<CR>", default_opts)
+map("n", "<leader>n", ":NnnExplorer %:p:h<CR>", default_opts)
 map("n", "<leader>p", ":NnnPicker %:p:h<CR>", default_opts)
 -- tnoremap <C-A-n> <cmd>NnnExplorer<CR>
 -- nnoremap <C-A-n> <cmd>NnnExplorer %:p:h<CR>
