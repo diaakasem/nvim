@@ -70,6 +70,7 @@ Plug 'juliosueiras/vim-terraform-completion'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'junegunn/fzf'
 Plug 'mcchrish/nnn.vim', {'do': ':NnnPicker'}
+" Plug 'null-ls', {'branch': 'main'}
 call plug#end()
 
 " Was unable to install it using PlugInstall
@@ -94,6 +95,8 @@ call plug#end()
 " Needed not to have errors
 luafile ~/.config/nvim/nvim-lspconfig.lua
 luafile ~/.config/nvim/nvim-lsp-installer.lua
+luafile ~/.config/nvim/coq.lua
+" luafile ~/.config/nvim/null-ls.lua
 "
 source ~/.config/nvim/vim-terraform.vim
 " for crc crm crs changing cases
@@ -102,7 +105,6 @@ source ~/.config/nvim/ale.vim
 source ~/.config/nvim/telescope.vim
 source ~/.config/nvim/nnn.vim
 source ~/.config/nvim/zoomwintab.vim
-luafile ~/.config/nvim/coq.lua
 source ~/.config/nvim/nvim-treesitter.vim
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/ctrlp.vim
