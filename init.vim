@@ -72,7 +72,10 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'junegunn/fzf'
 " Plug 'mcchrish/nnn.vim', {'do': ':NnnPicker'}
 Plug 'luukvbaal/nnn.nvim'
-
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 " Plug 'null-ls', {'branch': 'main'}
 call plug#end()
 
@@ -118,8 +121,10 @@ source ~/.config/nvim/vimwiki.vim
 source ~/.config/nvim/macros.vim
 source ~/.config/nvim/nerdcommenter.vim
 source ~/.config/nvim/vim-xtract.vim
+source ~/.config/nvim/prettier.vim
+" source ~/.config/nvim/colemak-mappings.vim
 
-"
+
 " source ~/.config/nvim/ultisnips.vim
 " source ~/.config/nvim/nerdtree.vim
 " source ~/.config/nvim/coq.vim
