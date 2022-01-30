@@ -18,6 +18,7 @@ augroup suffixes
         \["arduino", ".ino"],
         \["yaml", ".yml,.yaml"],
         \["shell", ".csh,.sh,.bash"],
+        \["terraform", ".tf"],
         \["vimrc", ".vimrc,.vim"],
         \["python", ".py,.pyw"]
         \]

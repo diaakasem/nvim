@@ -18,65 +18,63 @@ source ~/.config/nvim/old-vim-config.vim
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
+" Themes
+"
+" Plug 'junegunn/fzf'
+" Plug 'dense-analysis/ale'
+" Plug 'jisaacks/GitGutter'
+" Plug 'vim-scripts/vimagit'
+"
+" My Theme
+Plug 'jacoborus/tender.vim'
+" Base Plugins
+Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-rooter'
-Plug 'arzg/vim-colors-xcode'
-Plug 'dense-analysis/ale'
-Plug 'docunext/closetag.vim', { 'for': ['html'],  'do': 'make install' }
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx','typescript'],  'do': 'make install' }
-Plug 'jisaacks/GitGutter'
-Plug 'junegunn/vim-easy-align'
+Plug 'frazrepo/vim-rainbow'
+Plug 'fvictorio/vim-extract-variable'
 Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-signify'
-Plug 'frazrepo/vim-rainbow'
-Plug 'jacoborus/tender.vim'
 Plug 'myusuf3/numbers.vim'
-Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'rakr/vim-one'
 Plug 'rking/ag.vim'
 Plug 'rstacruz/vim-xtract'
-Plug 'fvictorio/vim-extract-variable'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'troydm/zoomwintab.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/bash-support.vim'
-Plug 'vim-scripts/mru'
-Plug 'vim-scripts/vimagit'
-Plug 'vim-scripts/yaml.vim'
 Plug 'vimwiki/vimwiki'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'troydm/zoomwintab.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh && npm install -g flow-bin',
-    \ }
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer', { 'branch': 'main' }
-Plug 'nvim-lua/popup.nvim'
 
-" main one
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh && npm install -g flow-bin' }
+Plug 'docunext/closetag.vim', { 'for': ['html'],  'do': 'make install' }
+Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx', 'typescript'], 'do': 'make install' }
+Plug 'juliosueiras/vim-terraform-completion', { 'for': ['terraform'] }
+Plug 'luukvbaal/nnn.nvim'
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
-Plug 'hashivim/vim-terraform'
-Plug 'juliosueiras/vim-terraform-completion'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'junegunn/fzf'
-" Plug 'mcchrish/nnn.vim', {'do': ':NnnPicker'}
-Plug 'luukvbaal/nnn.nvim'
-" post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-" Plug 'null-ls', {'branch': 'main'}
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'vim-scripts/bash-support.vim', { 'for': 'shell' }
+Plug 'vim-scripts/yaml.vim', { 'for': 'yaml' }
+Plug 'williamboman/nvim-lsp-installer', { 'branch': 'main' }
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-telescope/telescope-dap.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'theHamsta/nvim-dap-virtual-text'
 call plug#end()
 
 " Was unable to install it using PlugInstall
@@ -104,18 +102,19 @@ luafile ~/.config/nvim/nvim-lsp-installer.lua
 luafile ~/.config/nvim/nvim-treesitter.lua
 luafile ~/.config/nvim/coq.lua
 luafile ~/.config/nvim/nnn.lua
+luafile ~/.config/nvim/nvim-dap.lua
 " luafile ~/.config/nvim/null-ls.lua
 " luafile ~/.config/nvim/tabnine.lua
 "
 source ~/.config/nvim/vim-terraform.vim
 " for crc crm crs changing cases
 source ~/.config/nvim/abolish.vim
-source ~/.config/nvim/ale.vim
+" source ~/.config/nvim/ale.vim
 source ~/.config/nvim/telescope.vim
 " source ~/.config/nvim/nnn.vim
 source ~/.config/nvim/zoomwintab.vim
 source ~/.config/nvim/airline.vim
-source ~/.config/nvim/ctrlp.vim
+" source ~/.config/nvim/ctrlp.vim
 source ~/.config/nvim/theme.vim
 source ~/.config/nvim/vimwiki.vim
 source ~/.config/nvim/macros.vim
@@ -128,7 +127,7 @@ source ~/.config/nvim/prettier.vim
 " source ~/.config/nvim/ultisnips.vim
 " source ~/.config/nvim/nerdtree.vim
 " source ~/.config/nvim/coq.vim
-" source ~/.config/nvim/easy-align.vim
+source ~/.config/nvim/easy-align.vim
 " source ~/.config/nvim/indent-guides.vim
 " source ~/.config/nvim/vifm.vim
 

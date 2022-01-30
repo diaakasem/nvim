@@ -10,5 +10,5 @@ local sources = {
         -- null_ls.builtins.formatting.stylua,
 }
 null_ls.setup({ sources = sources })
-
-map("n", "<leader>v", ":lua vim.lsp.buf.formatting_sync()")
+local opts = { noremap=true, silent=true }
+map("n", "<leader>v", ":lua vim.lsp.buf.formatting_sync()", opts)

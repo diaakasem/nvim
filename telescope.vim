@@ -1,6 +1,9 @@
 " =============================================================================
 " Telescope
 " =============================================================================
+lua <<EOL
+require('telescope').load_extension('file_browser')
+EOL
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>

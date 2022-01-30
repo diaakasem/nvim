@@ -1,4 +1,4 @@
-au bufwritepre,filewritepre init.vim :so ~/.config/nvim/init.vim
+au BufWritePre init.vim call source ~/.config/nvim/init.vim
 
 " ===============
 " basic settings
@@ -129,9 +129,12 @@ set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**
 set wrapscan
 " set pastetoggle=<f8>
 au filetype javascript setl foldmethod=syntax nofoldenable
+
 " editorconfig
 let g:editorconfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:editorconfig_exec_path = system('which editorconfig')
+let g:minibufexplforcesyntaxenable = 1
+
 set runtimepath+=~/.vim/plugged
 set runtimepath+=~/.vim/personal
 " =============================================================================
@@ -142,7 +145,6 @@ set termencoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=utf-8,latin1
 
-let g:minibufexplforcesyntaxenable = 1
 " =============================================================================
 " auto change directory to where the opened file is opened
 " =============================================================================
@@ -222,17 +224,6 @@ nnoremap <leader>sb :window set scrollbind! <CR>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>x <c-w>
 
-" ================
-" Numbers config
-" ================
-" noremap <F6> :NumbersToggle<CR>
-" noremap <F7> :NumbersOnOff<CR>
-" Toggle paste 
-" noremap <F8> :set invpaste paste?<CR>
-" imap <F8> <C-O>:set invpaste paste?<CR>
-" nmap <leader>G :bprev<CR>
-" nmap <leader>g :bnext<CR>
-
 " ====================
 " Git Commands
 " ====================
@@ -250,18 +241,9 @@ nnoremap <leader>gs :Git status<CR>
 " Dangerous
 " nnoremap <leader>gA :!git add . --all<CR>
 
-" ====================
-" Compiling commands
-" ====================
-" Beautify for css or scss
-au FileType css nnoremap <buffer> <leader>; :call CSSBeautify()<cr>
-au FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
-
 " ==================
 " Javascript leader mappings
 " ==================
-" Add debugger; keyword
-au FileType javascript nnoremap <buffer> <leader>d Odebugger; <ESC> :w <CR>
 " Execute node on the current line
 au FileType javascript nnoremap <buffer> <leader>e :.!node <CR>
 
@@ -271,39 +253,11 @@ au FileType javascript nnoremap <buffer> <leader>e :.!node <CR>
 " Formats a .json file
 au FileType json nmap <leader>F :% !cat % \| jq '.'<CR>
 
-" ==================
-" Python leader mappings
-" ==================
-" Add the python line for debugging
-au FileType python nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR>
-" Run nosetest over the current file
-au FileType python nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>-
-" Rename all occurences after defintion
-au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x
-" Rename in block
-au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x
-" Execute python on the current line
-au FileType python nmap <leader>e :.!python <CR>
-
-" =============================================================================
-" Python Related Actions
-" =============================================================================
-let g:python3_host_prog=$HOME.'/.pyenv/versions/3.9.2/bin/python3'
-au! FileType python set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
-au! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au! FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-" au! FileType python nmap <F8> :TagbarToggle<CR>
-" au! FileType python set omnifunc=pythoncomplete#Complete
-" au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-" au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-
 " ====================
 " Shell Leader Mappings
 " ====================
 " Execute bash on the current line
 au FileType shell nmap <leader>e :.!bash <CR>  
-" Execute bash on the current line
-" au BufNewFile,BufRead,BufEnter *.pl nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>
 
 " ==============
 " HTML Leader Mappings
