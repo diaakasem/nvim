@@ -75,6 +75,7 @@ Plug 'rcarriga/nvim-dap-ui'
 Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'fatih/vim-go'
 call plug#end()
 
 " Was unable to install it using PlugInstall

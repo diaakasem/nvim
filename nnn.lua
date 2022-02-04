@@ -56,7 +56,8 @@ local cfg = {
 	 -- window_nav = "<C-l>"
 -- }
 nnn.setup(cfg)
-map("n", "<leader>n", ":NnnExplorer %:p:h<CR>", default_opts)
+-- No real need for that 
+-- map("n", "<leader>n", ":NnnExplorer %:p:h<CR>", default_opts)
 map("n", "<leader>p", ":NnnPicker %:p:h<CR>", default_opts)
 -- tnoremap <C-A-n> <cmd>NnnExplorer<CR>
 -- nnoremap <C-A-n> <cmd>NnnExplorer %:p:h<CR>
