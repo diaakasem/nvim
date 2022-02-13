@@ -16,33 +16,55 @@ source ~/.config/nvim/old-vim-config.vim
 " =============================================================================
 " My Bundles here: using vim-plug
 " =============================================================================
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.cache/nvim/plugged')
 
-" Plug 'Chiel92/vim-autoformat'
-" Themes
+" Obsolete by fzf
+" Telescope is really good, but all is covered in fzf so far
 "
-" Plug 'junegunn/fzf'
+" Plug 'Chiel92/vim-autoformat'
+" Plug 'RishabhRD/popfix'
+" Plug 'SirVer/ultisnips'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'cwood/ultisnips-terraform-snippets'
+" Plug 'dbakker/vim-projectroot'
 " Plug 'dense-analysis/ale'
+" Plug 'honza/vim-snippets'
+" Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
+" Plug 'isRuslan/vim-es6'
+" Plug 'jceb/vim-orgmode'
 " Plug 'jisaacks/GitGutter'
+" Plug 'kien/ctrlp.vim'
+" Plug 'majutsushi/tagbar'
+" Plug 'mfussenegger/nvim-dap'
+" Plug 'nvim-telescope/telescope-dap.nvim'
+" Plug 'nvim-telescope/telescope-file-browser.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+" Plug 'rakr/vim-one'
+" Plug 'rcarriga/nvim-dap-ui'
+" Plug 'rking/ag.vim'
+" Plug 'scrooloose/nerdtree' " , { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+" Plug 'theHamsta/nvim-dap-virtual-text'
+" Plug 'tomasr/molokai'
+" Plug 'tomlion/vim-solidity'
+" Plug 'tpope/vim-abolish' " , { 'on': ['GHDashboard', 'GHActivity'] }
+" Plug 'vifm/vifm.vim', {'do': ':Vifm'}
 " Plug 'vim-scripts/vimagit'
 "
 " My Theme
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'jacoborus/tender.vim'
 " Base Plugins
 Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-rooter'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'fvictorio/vim-extract-variable'
-Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-signify'
 Plug 'myusuf3/numbers.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'rakr/vim-one'
-Plug 'rking/ag.vim'
 Plug 'rstacruz/vim-xtract'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -53,7 +75,6 @@ Plug 'troydm/zoomwintab.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
-
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh && npm install -g flow-bin' }
 Plug 'docunext/closetag.vim', { 'for': ['html'],  'do': 'make install' }
 Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
@@ -70,65 +91,43 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'type
 Plug 'vim-scripts/bash-support.vim', { 'for': 'shell' }
 Plug 'vim-scripts/yaml.vim', { 'for': 'yaml' }
 Plug 'williamboman/nvim-lsp-installer', { 'branch': 'main' }
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'nvim-telescope/telescope-dap.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'fatih/vim-go'
 call plug#end()
 
 " Was unable to install it using PlugInstall
 " So copied the source for now - if you have a better way
 " do it 
-" Plug 'tpope/vim-abolish' " , { 'on': ['GHDashboard', 'GHActivity'] }
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-" Plug 'cwood/ultisnips-terraform-snippets'
-" Plug 'vifm/vifm.vim', {'do': ':Vifm'}
-" Plug 'isRuslan/vim-es6'
-" Plug 'tomlion/vim-solidity'
-" Plug 'jceb/vim-orgmode'
-" Plug 'dbakker/vim-projectroot'
-" Plug 'hrsh7th/nvim-cmp', { 'branch': 'main' }
-" Plug 'RishabhRD/popfix'
-" Plug 'majutsushi/tagbar'
-" Plug 'scrooloose/nerdtree' " , { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'tomasr/molokai'
-
 " Needed not to have errors
 luafile ~/.config/nvim/nvim-lspconfig.lua
 luafile ~/.config/nvim/nvim-lsp-installer.lua
 luafile ~/.config/nvim/nvim-treesitter.lua
 luafile ~/.config/nvim/coq.lua
 luafile ~/.config/nvim/nnn.lua
-luafile ~/.config/nvim/nvim-dap.lua
+" luafile ~/.config/nvim/nvim-dap.lua
 " luafile ~/.config/nvim/null-ls.lua
 " luafile ~/.config/nvim/tabnine.lua
 "
 source ~/.config/nvim/vim-terraform.vim
 " for crc crm crs changing cases
 source ~/.config/nvim/abolish.vim
-" source ~/.config/nvim/ale.vim
-source ~/.config/nvim/telescope.vim
-" source ~/.config/nvim/nnn.vim
 source ~/.config/nvim/zoomwintab.vim
 source ~/.config/nvim/airline.vim
-" source ~/.config/nvim/ctrlp.vim
 source ~/.config/nvim/theme.vim
 source ~/.config/nvim/vimwiki.vim
 source ~/.config/nvim/macros.vim
 source ~/.config/nvim/nerdcommenter.vim
 source ~/.config/nvim/vim-xtract.vim
 source ~/.config/nvim/prettier.vim
+source ~/.config/nvim/fzf.vim
+source ~/.config/nvim/easy-align.vim
+" source ~/.config/nvim/ale.vim
+" source ~/.config/nvim/telescope.vim
+" source ~/.config/nvim/nnn.vim
+" source ~/.config/nvim/ctrlp.vim
 " source ~/.config/nvim/colemak-mappings.vim
-
-
 " source ~/.config/nvim/ultisnips.vim
 " source ~/.config/nvim/nerdtree.vim
 " source ~/.config/nvim/coq.vim
-source ~/.config/nvim/easy-align.vim
 " source ~/.config/nvim/indent-guides.vim
 " source ~/.config/nvim/vifm.vim
 

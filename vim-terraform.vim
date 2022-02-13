@@ -36,4 +36,5 @@
 
 " call deoplete#initialize()
 
-au BufWritePre,FileWritePre *.tf :TerraformFmt
+" Causing usse with terraform v0.11
+" au BufWritePre,FileWritePre *.tf :TerraformFmt

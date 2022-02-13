@@ -1,4 +1,4 @@
-au BufWritePre init.vim call source ~/.config/nvim/init.vim
+au BufWritePost init.vim :source %
 
 " ===============
 " basic settings
@@ -16,7 +16,7 @@ set background=dark
 " allow backspacing over autoindent, eol, and bol
 " set backspace=2
 " change backupdir ,/var/tmp,/tmp
-set backupdir=~/.vim/tmp,~/.tmp,~/tmp
+set backupdir=~/.tmp/vim
 " make command line two lines high
 set ch=1
 set cindent
@@ -34,7 +34,7 @@ set cursorline
 " add ignorance of whitespace to diff
 set diffopt+=iwhite
 " ,/var/tmp,/tmp
-set directory=~/.vim/tmp,~/.tmp,~/tmp
+set directory=~/.tmp/vim
 " use spaces, not tabs, for autoindent/tab key.
 set expandtab
 " try recognizing dos, unix, and mac line endings.
@@ -207,13 +207,8 @@ noremap <silent> <leader>Q :q<CR>
 
 " Turning off highlighing
 nnoremap <leader>b :silent :nohlsearch<CR>
-nnoremap <leader>f :CtrlPMixed<CR>
 " Split the same window
 nnoremap <leader>h :sp<CR>
-" Opem Most Recently Used :MRU  - Dont add comments afterwards
-nnoremap <leader>m :CtrlPMRU<CR>
-" Toggle the BufExplorer
-nnoremap <leader>o :CtrlPBuffer<CR>
 " Paste from clipboard
 nnoremap <leader>p <C-R><C-P>.
 " Reload buffer

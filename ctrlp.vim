@@ -3,6 +3,11 @@
 " =============================================================================
 " sudo apt install silversearcher-ag
 " brew install the_silver_searcher
+nnoremap <leader>f :CtrlPMixed<CR>
+" Opem Most Recently Used :MRU  - Dont add comments afterwards
+nnoremap <leader>m :CtrlPMRU<CR>
+" Toggle the BufExplorer
+nnoremap <leader>o :CtrlPBuffer<CR>
 if executable('ag')
   " Use ag over grep or ack
   set grepprg=ag\ --nogroup\ --nocolor\ --column
